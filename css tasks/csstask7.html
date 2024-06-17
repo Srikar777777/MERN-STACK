@@ -6,10 +6,11 @@
 <title>Registration Form</title>
 <style>
   body { font-family: Arial, sans-serif; }
-  .outer{ width:850px; margin:200px;background-color: magenta;}
-  .inner{ width:500px; margin:150px;background-color: rgb(165, 25, 165);}
+  body{ width:850px; margin:200px;background-color: magenta;}
+  .inner{ width:500px; margin-left:250px;background-color: rgb(165, 25, 165);padding-top: 10px;padding-bottom: 10px;}
   .container { width: 300px; margin: auto;background-color: rgb(165, 25, 165); }
   label {  margin-top: 10px; }
+  #reg{ font-size: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 700;}
   input[type=text], input[type=email], input[type=password], input[type=tel], select, textarea {
     width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 20px; border: 1px solid black; border-radius: 4px;
   }
@@ -54,7 +55,7 @@
       <label for="about">About:</label>
       <textarea id="about" name="about" placeholder="Write about yourself" rows="4" required></textarea>
   
-      <input type="submit" value="Register">
+      <input type="submit" value="Register" id="reg">
     </form>
         </div>
   </div>
