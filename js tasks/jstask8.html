@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      body {
+        background: linear-gradient(to bottom, #ffffcc, #cc99ff);
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: magenta;
+      }
+      h1 {
+        text-align: center;
+        color: blue;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: inline-block;
+        width: 120px;
+      }
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: calc(100% - 130px);
+        padding: 5px;
+      }
+      .form-group .poor {
+        color: red;
+        font-weight: bold;
+        display: inline-block;
+        margin-left: 10px;
+      }
+      .form-group .poor.mismatch {
+        display: none;
+      }
+      .form-group .gender-label {
+        width: auto;
+      }
+      .form-group .gender-input {
+        width: auto;
+      }
+      .form-check {
+        display: flex;
+        align-items: center;
+      }
+      .form-check input {
+        margin-right: 10px;
+      }
+      .form-check label {
+        margin-right: 20px;
+      }
+      .submit-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: red;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .login-link {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .login-link a {
+        color: blue;
+        text-decoration: none;
+      }
+      .form-group input[type="radio"] {
+            margin-right: 67px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registration Form</h1>
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="firstName">First Name </label>
+          <input type="text" id="firstName" required />
+          <span class="poor">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" required />
+          <span class="poor">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
+          <span class="poor">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+          <span class="poor">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="rePassword">Re-enter Password</label>
+          <input type="password" id="rePassword" required />
+          <span class="poor mismatch">POOR or MISMATCH</span>
+        </div>
+        <div class="form-group">
+          <label class="gender-label">Gender</label>
+          <br>
+          <label class="gender-input">
+            <input type="radio" name="gender" id="male" value="male" required> Male
+            <br>
+            <input type="radio" name="gender" id="female" value="female" required > Female
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" required />
+          <span class="poor">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" required />
+          <span class="poor">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea id="address" rows="3" required></textarea>
+          <span class="poor">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" id="state" required />
+          <span class="poor">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country" required>
+            <option value="">Choose your country</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="India">India</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Languages Known</label>
+          <div class="form-check">
+            <input type="checkbox" id="english" value="English" />
+            <label for="english">English</label>
+            <input type="checkbox" id="kannada" value="Kannada" />
+            <label for="kannada">Kannada</label>
+            <input type="checkbox" id="hindi" value="Hindi" />
+            <label for="hindi">Hindi</label>
+            <input type="checkbox" id="telugu" value="Telugu" />
+            <label for="telugu">Telugu</label>
+          </div>
+        </div>
+        <div style="margin-bottom: 10px;">
+          
+            <input type="checkbox" required /> Hereby I declare all the given
+            details are true
+          
+        </div>
+        <div class="login-link">
+            <p align="right">
+              Log in to <a href="https://ethnus.com/">Ethnus</a> website
+            </p>
+          </div>
+        <button type="submit" class="submit-btn">REGISTER</button>
+      </form>
+      
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var form = document.getElementById("registrationForm");
+        var inputs = form.querySelectorAll("input, textarea, select");
+        var password = document.getElementById("password");
+        var rePassword = document.getElementById("rePassword");
+
+        inputs.forEach(function (input) {
+          input.addEventListener("input", function () {
+            var poorLabel = input.closest(".form-group").querySelector(".poor");
+
+            if (input.checkValidity() && input.value.trim() !== "") {
+              poorLabel.style.display = "none";
+            } else {
+              poorLabel.style.display = "inline";
+            }
+
+            if (input.type === "password" || input.id === "rePassword") {
+              validatePasswordMatch();
+            }
+          });
+        });
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var isValid = true;
+
+          inputs.forEach(function (input) {
+            var poorLabel = input.closest(".form-group").querySelector(".poor");
+
+            if (!input.checkValidity() || input.value.trim() === "") {
+              poorLabel.style.display = "inline";
+              isValid = false;
+            } else {
+              poorLabel.style.display = "none";
+            }
+          });
+
+          validatePasswordMatch();
+
+          if (isValid) {
+            alert("Form submitted successfully!");
+          }
+        });
+
+        function validatePasswordMatch() {
+          var poorLabel = rePassword.closest(".form-group").querySelector(".mismatch");
+          if (password.value !== rePassword.value) {
+            poorLabel.style.display = "inline";
+          } else {
+            poorLabel.style.display = "none";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

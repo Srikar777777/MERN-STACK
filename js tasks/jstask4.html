@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task-4</title>
+    <style>
+        .lineone{
+            display:flexbox
+        }
+        .linetwo{
+            display:flexbox
+        }
+    </style>
+</head>
+<body>
+    <button onclick="showDate()" class="lineone">show date</button>
+    <p id="date" class="lineone"></p>
+    <button onclick="showTime()" class="linetwo">show Time</button>
+    <p id="time" class="linetwo"></p>
+    <script>
+        function showDate() {
+            const currentDate = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('date').innerHTML = currentDate.toLocaleDateString('en-GB', options);
+        }
+
+        function showTime() {
+            const currentTime = new Date();
+            document.getElementById('time').innerHTML = currentTime.toString();
+        }
+    </script>
+</body>
+</html>
